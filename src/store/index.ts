@@ -1,12 +1,35 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-import app from './app.ts'
+import Vuex, {ActionTree, MutationTree} from 'vuex'
+import actions from './actions'
+import mutations from './mutations'
+import getters from './getters'
+// import 'babel-polyfill'
+import app from './app'
 
 Vue.use(Vuex)
+
+interface State {
+  login: Boolean,
+  modules: StoreState.module[],
+  headline: StoreState.headline[],
+  activities: StoreState.activity[],
+  superSales: StoreState.superSale[],
+  shops: StoreState.shop[],
+  searchVal: string
+}
+
+let state: State = {
+  login: false,
+  modules: [],
+  headline: [],
+  activities: [],
+  superSales: [],
+  shops: [],
+  searchVal: ''
+}
 
 export default new Vuex.Store({
   modules: {
     app
   }
 })
-// mutation 方法名一律采取,大写字母形式,避免和组件中,api中的方法名,重复action

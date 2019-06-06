@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="container container-star">
+  <div class="page-404">
+    <div class="container-star">
       <div class="star-1"></div>
       <div class="star-1"></div>
       <div class="star-1"></div>
@@ -25,7 +25,7 @@
       <div class="star-2"></div>
     </div>
 
-    <div class="container container-bird">
+    <div class="container-bird">
       <div class="bird bird-anim">
         <div class="bird-container">
           <div class="wing wing-left">
@@ -60,8 +60,8 @@
           </div>
           <div class="number">4</div>
         </div>
-        <div class="subtitle">哎呀。看来你拐错弯了。</div>
-        <button @click="window.href.locaion='/#/'">返回</button>
+        <div class="subtitle">哎呀! 走丢了 ^.^</div>
+        <a class="back-btn" href="/">返回</a>
       </div>
     </div>
 

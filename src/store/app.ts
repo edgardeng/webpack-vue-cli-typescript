@@ -4,7 +4,7 @@
 
 const app = {
   state: {
-    login: true, // login or not,
+    login: false, // login or not,
     userId: 0
   },
   mutations: {
@@ -17,11 +17,11 @@ const app = {
   },
   actions: {
     CHANGE_LOG_IN: ({ commit }) => {
-      console.log('CHANGE_LOG_IN')
+      // console.log('CHANGE_LOG_IN')
       commit('LOGIN')
     },
     CHANGE_LOG_OUT: ({ commit }) => {
-      commit('LOGIN')
+      commit('LOGOUT')
     }
   },
   getters: {

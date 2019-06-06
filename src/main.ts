@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router/index'
-import store from './store/index'
+import router from './router'
+import store from './store'
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload, { preLoad: 1 })
 
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  let islogin = store.getters.isLogin
-  if (islogin) {
-    next() // is login
+  let login = store.getters.isLogin
+  if (login) {
     if (to.path === '/login') {
       next('/')
     } else {
@@ -24,13 +26,11 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-// router.afterEach(transition => {
-// })
-
-/* eslint-disable no-new */
-new Vue({
+const app: Vue = new Vue({
   el: '#app',
   router,
   store,
   render: h => h(App)
 })
+
+export default app

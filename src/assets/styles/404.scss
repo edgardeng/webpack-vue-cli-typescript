@@ -1,20 +1,9 @@
-.container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.page-404 {
+  background-image: linear-gradient(to bottom, #B2E2FF 0%, #EEC1E9 40%, #a871d6 100%);
   height: 100%;
-  overflow: hidden;
 }
 
 .container-star {
-  background-image: linear-gradient(to bottom, #292256 0%, #8446cf 70%, #a871d6 100%);
-}
-.container-star:after {
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(15, 10, 38, 0.2) 100%);
-  content: "";
-  width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
 }
@@ -370,27 +359,27 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-button {
-  font-size: 22px;
+.back-btn {
   margin-top: 1.5em;
   padding: 0.5em 1em;
   letter-spacing: 1px;
   font-family: "Lato", sans-serif;
   color: white;
   background-color: transparent;
-  border: 0;
   cursor: pointer;
   z-index: 999;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 5px;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   transition: opacity 0.2s ease;
 }
 
-button:hover {
+.back-btn:hover {
   opacity: 0.7;
+  color: #f1f0f1;
+  text-decoration: none;
 }
-button:focus {
+.back-btn:focus {
   outline: 0;
 }
 

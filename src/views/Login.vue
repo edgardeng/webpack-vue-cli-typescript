@@ -2,7 +2,7 @@
   <div class="page text-center">
     <div class="float-brand"> Logo & Brand</div>
     <div class="form-signin card-box" id="form">
-      <h2 class="h3 mb-1 mb-5 font-weight-normal">XX系统平台</h2>
+      <h4 class="mb-1 mb-5 font-weight-normal">Welcome</h4>
       <div class="form-group">
         <i class="fa fa-user"> </i>
         <input class="form-control" id="input-name"  v-model="username" aria-describedby="emailHelp"
@@ -15,49 +15,32 @@
       </div>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> 记住我
+          <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" id="signin" @click="handleSubmit()">Sign in</button>
 
-      <button type="button" class="btn btn-link text-danger" style="margin-top:20px;font-weight: normal;"><span class="text-muted">没有账户?</span>去注册</button>
+      <button type="button" class="btn btn-link text-danger" style="margin-top:20px;font-weight: normal;"><span class="text-muted">NO ACCOUNT?</span> Sign Up</button>
 
     </div>
 
     <div class="footer">&copy;Company 2019-2020</div>
   </div>
-
 </template>
 
 <script lang="ts" >
-import { mapActions } from 'vuex'
 
-export default {
-  data () {
-    return {
-      username: 'admin',
-      password: '',
-      isLoading: false,
-      remember: true,
-      wantLogin: true,
-      styleGoBtn: {
-        color: this.wantLogin ? '#409EFF' : '#f56c6c'
-      }
-    }
-  },
-  created () {
-  },
-  mounted () {
-  },
-  methods: {
-    ...mapActions([
-      'CHANGE_LOG_IN'
-    ]),
-    handleChagne () {
-      this.wantLogin = !this.wantLogin
-    },
-    handleReset () {
-    },
+  import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+  import { State, Action, Mutation, Getter } from 'vuex-class'
+
+  @Component({})
+  export default class Login extends Vue {
+    // data
+    username = 'admin'
+    password = ''
+
+    @Action('CHANGE_LOG_IN') logIn
+
     handleSubmit () {
       if (this.username !== 'admin') {
         console.log('username error')
@@ -68,16 +51,19 @@ export default {
       } else {
         this.doLogin()
       }
-    },
-    doRegister () {
-    },
+    }
+
     doLogin () {
-      this.CHANGE_LOG_IN()
+      this.logIn()
       console.log('doLogin')
       this.$router.push('/')
     }
+
+    // hooks
+    mounted () {
+      console.log('Login Page mounted')
+    }
   }
-}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" >

@@ -1,19 +1,36 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue, { AsyncComponent } from 'vue'
+import Router, { RouteConfig, Route, NavigationGuard } from 'vue-router'
 
-// const NoFound = r => require.ensure([], () => r(require('@/pages/NotFound.vue')), 'group-none')
-// const Login = r => require.ensure([], () => r(require('@/pages/Login.vue')), 'group-login')
-// const Home = r => require.ensure([], () => r(require('@/pages/Home.vue')), 'group-home')
-const NoFound = require('@/pages/NotFound.vue')
-const Login = require('@/pages/Login.vue')
-const Home = require('@/pages/Home.vue')
+import Home from '@/views/Home.vue'
+import Login from '@/views/Login.vue'
+import NotFound from '@/views/NotFound.vue'
+
+// const main = require('@/views/main.vue')
+// const home = require('@/views/home.vue')
+// const login = require('@/views/login.vue')
+
+// const main : AsyncComponent = (): any => import('@/views/main.vue')
+// const home: AsyncComponent = (): any => import('@/views/home.vue')
+// const login: AsyncComponent = (): any => import('@/views/login.vue')
+
+// import main from '@/views/main.vue'
 
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    { name: 'Home', path: '/', component: Home },
-    { name: 'Login', path: '/login', component: Login },
-    { name: '404', path: '*', component: NoFound }
-  ]
+const routes: RouteConfig[] = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  { name: 'home', path: '/home', component: Home },
+  { name: 'login', path: '/login', component: Login },
+  { name: 'not_found', path: '*', component: NotFound },
+]
+
+const router: Router = new Router({
+  mode: 'history',
+  base: '/',
+  routes
 })
+
+export default router

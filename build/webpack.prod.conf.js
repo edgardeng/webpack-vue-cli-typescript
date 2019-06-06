@@ -18,6 +18,7 @@ const env = process.env.NODE_ENV === 'testing'
   : require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -110,9 +111,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
-        ? 'index.ts.ts.html'
+        ? 'index.html'
         : config.build.index,
-      template: 'index.ts.ts.html',
+      template: 'index.html',
       inject: true,
       minify: {
         removeComments: true,
